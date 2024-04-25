@@ -2,6 +2,7 @@ package com.ai.commentbot.service;
 
 import com.ai.commentbot.handler.OpenAiChatResponseHandler;
 import com.ai.commentbot.model.OpenAiChatResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -12,8 +13,10 @@ import java.net.http.HttpResponse;
 
 @Service
 public class OpenAiService {
-    private static final String OPENAI_API_KEY = "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";
-    private static final String OPENAI_API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
+    @Value("open-ai.secret-key")
+    private String OPENAI_API_KEY;
+    @Value("open-ai.chat-endpoint")
+    private String OPENAI_API_ENDPOINT;
     private final HttpClient httpClient;
 
     public OpenAiService(HttpClient httpClient) {

@@ -9,6 +9,10 @@ logging:
     org.springframework.web: TRACE
     org.springframework.web.reactive: TRACE
 
+open-ai:
+  secret-key: #provide the secret key here
+  chat-endpoint: https://api.openai.com/v1/chat/completions
+
 spring:
   #Local MongoDB config
   data:
